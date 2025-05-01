@@ -6,10 +6,11 @@ import Dashboard from "./pages/Dashboard";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./routes/ProtectedRoute";
-import AddTask from "./components/addtask";
-import MyTasks from "./components/mytasks";
+import MyDay from "./components/MyDay";
+import MyTasks from "./components/MyTasks";
 import Completed from "./components/completed";
 import Reminders from "./components/reminders";
+import UserStats from "./components/UserStats";
 const App = () => {
   return (
     <>
@@ -18,10 +19,12 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Dashboard />}>
-            <Route path="add-task" element={<AddTask />} />
+            <Route path="/" element={<UserStats />} />
+            <Route path="myDay" element={<MyDay />} />
             <Route path="my-tasks" element={<MyTasks />} />
             <Route path="completed" element={<Completed />} />
             <Route path="reminders" element={<Reminders />} />
+            <Route path="myStats" element={<UserStats />} />
           </Route>
         </Route>
       </Routes>

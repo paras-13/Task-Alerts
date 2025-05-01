@@ -9,6 +9,7 @@ import {
   Bell,
   List,
 } from "lucide-react";
+import { IoIosStats } from "react-icons/io";
 
 function Sidebar() {
   const { currentUser, logout } = useContext(AuthContext);
@@ -43,12 +44,12 @@ function Sidebar() {
         <nav className="space-y-4">
           <Link
             className={`flex items-center space-x-2 p-2 rounded-md ${
-              isActive("add-task") ? "bg-blue-600" : "hover:bg-blue-700"
+              isActive("myDay") ? "bg-blue-600" : "hover:bg-blue-700"
             }`}
-            to="/add-task"
+            to="/myDay"
           >
             <PlusCircle className="w-5 h-5" />
-            <span>Add Task</span>
+            <span>My Day</span>
           </Link>
 
           <Link
@@ -79,6 +80,15 @@ function Sidebar() {
           >
             <Bell className="w-5 h-5" />
             <span>Reminders</span>
+          </Link>
+          <Link
+            className={`flex items-center space-x-2 p-2 rounded-md ${
+              isActive("myStats") ? "bg-blue-600" : "hover:bg-blue-700"
+            }`}
+            to="/myStats"
+          >
+            <IoIosStats />
+            <span>My Stats</span>
           </Link>
         </nav>
       </div>
