@@ -155,7 +155,9 @@ class TaskController extends Controller
             $task->reminderDate = $request->reminderDate;
             $task->reminderTime = $request->reminderTime;
             $task->completed = $request->completed ?? false;
-
+            if ($request->has('reminder')) {
+                $task->reminder_sent = 0;
+            }
             $task->save();
 
             return response()->json([

@@ -6,7 +6,7 @@ import makeRequest from "../../axios";
 import dayjs from "dayjs";
 import TaskModal from "../Modals/TaskModal";
 import AddTaskCard from "../Modals/AddTaskCard";
-
+import { FaBell } from "react-icons/fa6";
 function MyTasks() {
   const { currentUser } = useContext(AuthContext);
   const [openEditableWindow, setOpenEditableWindow] = useState(false);
@@ -159,6 +159,9 @@ function MyTasks() {
                       Due: {dayjs(t.dueDate).format("DD MMM YYYY")} at{" "}
                       {t.dueTime}
                     </p>
+                    {t.reminder && (
+                      <FaBell className="text-yellow-500 text-sm" />
+                    )}
                   </div>
                   <button
                     onClick={(e) => {
